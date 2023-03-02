@@ -1,18 +1,14 @@
 <?php
 
+use App\PostCard;
+use App\PostCardSendingService;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/postCards', function (PostCardSendingService $postcardservice) {
+    $postcardservice->hello(message:'hello I am nepal',email:'test@test.com');
+});
+
+Route::get('/facades', function () {
+    PostCard::hello(message:'hello I am nepal',email:'test@test.com');
+});
